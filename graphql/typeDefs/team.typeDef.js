@@ -4,24 +4,18 @@ module.exports = gql`
 type Team {
     _id: ID!
     name: String!
-    league: String!
+    league: League!
     capital: Float!
 }
 
 input TeamInput {
     name: String!
-    league: String!
+    league: League!
     capital: Float!
 }
 
-input TeamFilter {
-    name: String
-    league: String
-    capital: Float
-}
-
 type Query {
-    teams(filter: TeamFilter!): [Team]
+    teams(name: String): [Team]
 }
 
 type Mutation {
